@@ -115,6 +115,7 @@ class Chat extends Component {
   disconnect() {
     if (this.ws != null) this.ws.close();
     console.log("Disconnected");
+    alert("You are Disconnected :( \nPlease reload the page !");
   }
 
   sendPositions = (event) => {

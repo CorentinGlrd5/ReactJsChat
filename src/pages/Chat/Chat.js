@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as backendAPI from "../../services/Services.js";
+import ScrollToBottom from "react-scroll-to-bottom";
 import "./Chat.css";
 
 const formValid = ({ formErrors, ...rest }) => {
@@ -123,22 +124,8 @@ class Chat extends Component {
     );
   };
 
-  scrollToBottom = () => {
-    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
-  };
-
-  // async logout() {
-  //   this.disconnect();
-  //   await backendAPI.logout();
-  // }
-
   componentDidMount() {
     this.autoLogin();
-    this.scrollToBottom();
-  }
-
-  componentDidUpdate() {
-    this.scrollToBottom();
   }
 
   render() {
@@ -147,12 +134,7 @@ class Chat extends Component {
     return (
       <div className="container-chat">
         <div className="chat">
-          <div>
-            <h2>Chat</h2>
-            <div className="logout">
-              <button className="logoutButton">Send Message</button>
-            </div>
-          </div>
+          <h2>Chat</h2>
           <form className="chatForm" onSubmit={this.handleSubmit} noValidate>
             <input
               className={formErrors.message.length > 0 ? "error" : null}
@@ -178,16 +160,11 @@ class Chat extends Component {
         <div className="container">
           <div className="containerMessage">
             <h2>Messages</h2>
-            <ul
-              className="message"
-              ref={(el) => {
-                this.messagesEnd = el;
-              }}
-            >
-              {this.state.messages.map((message, key) => (
-                <li key={key}>{message}</li>
+            <ScrollToBottom className="messages">
+              {this.state.messages.map((message, i) => (
+                <div key={i}>• {message}</div>
               ))}
-            </ul>
+            </ScrollToBottom>
           </div>
           <div className="map">
             <h2>Map</h2>

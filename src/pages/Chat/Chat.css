@@ -95,7 +95,8 @@ input::placeholder {
 }
 .containerMessage {
   width: 600px;
-  height: 600px;
+  height: 560px;
+  padding: 20px 0 20px 0;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -105,6 +106,14 @@ input::placeholder {
   align-items: center;
 }
 
+.messages {
+  position: relative;
+  padding: 1% 0 0 5%;
+  overflow: auto;
+  flex: auto;
+  width: 80%;
+  border-top: 1px solid #8080805e;
+}
 .message {
   width: 90%;
   height: 500px;

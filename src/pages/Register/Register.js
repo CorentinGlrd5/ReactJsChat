@@ -65,6 +65,7 @@ class Register extends Component {
         const registerResponseValue = await response.text();
         if (registerResponseValue !== "OK") {
           console.log("erreur", registerResponseValue);
+          alert(registerResponseValue);
         } else {
           console.log("Le compte a été créé !");
           window.location.replace("/login");

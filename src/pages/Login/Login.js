@@ -57,6 +57,7 @@ class Login extends Component {
         const loginResponseValue = await loginResponse.text();
         if (loginResponseValue !== "OK") {
           console.log("error", loginResponseValue);
+          alert(loginResponseValue);
         } else {
           console.log("Vous êtes connecté !", loginResponseValue);
           window.location.replace("/chat");

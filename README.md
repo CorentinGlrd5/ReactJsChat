@@ -1,4 +1,4 @@
-# Go webserver
+# ReactJsChat
 
 ReactJsChat is in site coded in ReactJs. You can register, connect and chat with your friends.
 
